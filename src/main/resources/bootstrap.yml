@@ -4,6 +4,6 @@ spring:
     cloud:
         config:
             enabled: true
-            uri: http://localhost:8005
+            uri: http://20.221.246.56:8005
 
 
