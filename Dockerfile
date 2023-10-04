@@ -3,11 +3,11 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src ./src
-RUN mvn package cd .-DskipTests
+RUN mvn package -DskipTests
 FROM openjdk:11-jre-slim
 WORKDIR /app
 COPY --from=build /app/target/eureka-service.jar ./app.jar
-EXPOSE 800
+EXPOSE 8761
 CMD ["java", "-jar", "app.jar"]
 
 
