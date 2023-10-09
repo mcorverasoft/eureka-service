@@ -7,7 +7,6 @@ RUN mvn package -DskipTests
 FROM openjdk:11-jre-slim
 WORKDIR /app
 COPY --from=build /app/target/eureka-service.jar ./app.jar
-EXPOSE 8761
 CMD ["java", "-jar", "app.jar"]
 
 
